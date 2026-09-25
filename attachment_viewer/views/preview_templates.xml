@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2026 Kalki Infinite (<https://kalkiinfinite.odoo.com>) -->
+<!-- License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html) -->
+<odoo>
+
+    <template id="preview_page" name="Attachment Viewer">
+        <t t-call="web.frontend_layout">
+            <t t-set="no_header" t-value="True"/>
+            <t t-set="no_footer" t-value="True"/>
+            <t t-set="title" t-value="attachment.name"/>
+
+            <div class="av_page" t-att-data-previous-url="'/attachment/viewer/%d' % previous.id if previous else None"
+                 t-att-data-next-url="'/attachment/viewer/%d' % next.id if next else None">
+                <div class="av_topbar">
+                    <div class="av_meta">
+                        <span class="av_filename" t-out="attachment.name"/>
+                        <span class="av_subtitle">
+                            <t t-out="attachment.mimetype or 'unknown type'"/>
+                            <t t-if="size_label">
+                                &#183; <t t-out="size_label"/>
+                            </t>
+                        </span>
+                    </div>
+                    <div class="av_actions" role="group" aria-label="Preview navigation">
+                        <a t-if="previous" t-attf-href="/attachment/viewer/#{previous.id}"
+                           class="btn btn-secondary btn-sm" aria-label="Previous attachment"
+                           title="Previous attachment">&#8592;</a>
+                        <a t-if="next" t-attf-href="/attachment/viewer/#{next.id}"
+                           class="btn btn-secondary btn-sm" aria-label="Next attachment"
+                           title="Next attachment">&#8594;</a>
+                        <a t-if="kind != 'link'" t-attf-href="/web/content/#{attachment.id}?download=true"
+                           class="btn btn-primary btn-sm" aria-label="Download this file">Download</a>
+                    </div>
+                </div>
+
+                <main class="av_body">
+                    <img t-if="kind == 'image'" class="av_image"
+                         t-attf-src="/web/content/#{attachment.id}" t-att-alt="attachment.name"/>
+
+                    <iframe t-if="kind == 'pdf'" class="av_frame"
+                            t-attf-src="/web/content/#{attachment.id}#view=FitH"
+                            t-att-title="attachment.name"/>
+
+                    <pre t-if="kind == 'text'" class="av_text" t-out="text"/>
+
+                    <video t-if="kind == 'video'" class="av_media" controls="controls">
+                        <source t-attf-src="/web/content/#{attachment.id}"
+                                t-att-type="attachment.mimetype"/>
+                    </video>
+
+                    <audio t-if="kind == 'audio'" class="av_media" controls="controls">
+                        <source t-attf-src="/web/content/#{attachment.id}"
+                                t-att-type="attachment.mimetype"/>
+                    </audio>
+
+                    <div t-if="kind == 'link'" class="av_empty">
+                        <h4>This attachment points to an external link</h4>
+                        <p t-if="link" class="text-muted">
+                            It is not stored as a file in Odoo, so there is nothing to download.
+                        </p>
+                        <p t-if="not link" class="text-muted">
+                            The link could not be shown safely.
+                        </p>
+                        <a t-if="link" t-att-href="link" target="_blank" rel="noopener noreferrer"
+                           class="btn btn-primary">Open link</a>
+                    </div>
+
+                    <div t-if="kind == 'none'" class="av_empty">
+                        <h4>No preview for this file type</h4>
+                        <p class="text-muted">
+                            <t t-out="attachment.mimetype or 'This file'"/> cannot be shown in
+                            the browser. Download it to open it locally.
+                        </p>
+                        <a t-attf-href="/web/content/#{attachment.id}?download=true"
+                           class="btn btn-primary">Download <t t-out="attachment.name"/></a>
+                    </div>
+                </main>
+            </div>
+        </t>
+    </template>
+
+</odoo>
