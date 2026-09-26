@@ -30,7 +30,7 @@ SAFE_LINK_SCHEMES = ('http', 'https')
 # below is missing or not a usable number. Past this size the pane stops
 # being useful and starts loading megabytes of text into the tab.
 DEFAULT_TEXT_PREVIEW_LIMIT_KB = 200
-TEXT_PREVIEW_LIMIT_PARAM = 'attachment_viewer.text_preview_limit_kb'
+TEXT_PREVIEW_LIMIT_PARAM = 'ki_attachment_viewer.text_preview_limit_kb'
 
 
 class IrAttachment(models.Model):
@@ -76,7 +76,7 @@ class IrAttachment(models.Model):
     def _get_text_preview_limit(self):
         """Byte cap applied to a text preview.
 
-        Read from the ``attachment_viewer.text_preview_limit_kb`` system
+        Read from the ``ki_attachment_viewer.text_preview_limit_kb`` system
         parameter, so it can be raised or lowered without touching code.
         """
         raw_value = self.env['ir.config_parameter'].sudo().get_param(

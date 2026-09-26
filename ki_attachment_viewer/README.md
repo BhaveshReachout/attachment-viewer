@@ -40,7 +40,7 @@ system parameter:
 
 | Key | Default | Meaning |
 | --- | --- | --- |
-| `attachment_viewer.text_preview_limit_kb` | `200` | Max size (KB) of a text file shown inline before it is truncated. |
+| `ki_attachment_viewer.text_preview_limit_kb` | `200` | Max size (KB) of a text file shown inline before it is truncated. |
 
 ## Security notes
 

@@ -52,8 +52,8 @@ to the login page rather than the file.
     ],
     'assets': {
         'web.assets_frontend': [
-            'attachment_viewer/static/src/css/preview.css',
-            'attachment_viewer/static/src/js/preview.js',
+            'ki_attachment_viewer/static/src/css/preview.css',
+            'ki_attachment_viewer/static/src/js/preview.js',
         ],
     },
     'images': ['static/description/banner.png'],

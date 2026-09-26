@@ -33,7 +33,7 @@ class AttachmentViewerController(http.Controller):
 
         previous, following = attachment._get_preview_neighbours()
         kind = attachment.preview_type
-        return request.render('attachment_viewer.preview_page', {
+        return request.render('ki_attachment_viewer.preview_page', {
             'attachment': attachment,
             'kind': kind,
             'text': attachment._get_preview_text() if kind == 'text' else '',
