@@ -1,4 +1,3 @@
-# Copyright 2026 Kalki Infinite (<https://kalkiinfinite.odoo.com>)
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html)
 {
     'name': 'Attachment Viewer',
@@ -43,8 +42,7 @@ nothing is read with elevated rights. Standard ir.attachment access rules
 decide what each user may open, and a visitor who is not logged in is sent
 to the login page rather than the file.
 """,
-    'author': 'Kalki Infinite',
-    'maintainer': 'Kalki Infinite',
+    'author': 'bk',
     'website': 'https://kalkiinfinite.odoo.com',
     'license': 'LGPL-3',
     'depends': ['base', 'web'],
@@ -58,7 +56,7 @@ to the login page rather than the file.
             'attachment_viewer/static/src/js/preview.js',
         ],
     },
-    'images': ['static/description/banner.png'],  # add once artwork is supplied
+    'images': ['static/description/banner.png'],
     'installable': True,
     'application': False,
     'auto_install': False,

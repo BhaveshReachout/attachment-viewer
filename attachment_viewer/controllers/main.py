@@ -1,4 +1,3 @@
-# Copyright 2026 Kalki Infinite (<https://kalkiinfinite.odoo.com>)
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html)
 from odoo import http
 from odoo.exceptions import AccessError

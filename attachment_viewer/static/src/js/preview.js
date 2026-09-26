@@ -1,5 +1,4 @@
 /** @odoo-module ignore */
-// Copyright 2026 Kalki Infinite (<https://kalkiinfinite.odoo.com>)
 // License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html)
 
 // Mirrors the on-screen previous/next buttons on the left/right arrow

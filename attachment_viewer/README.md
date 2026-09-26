@@ -1,6 +1,6 @@
 # Attachment Viewer
 
-**by [Kalki Infinite](https://kalkiinfinite.odoo.com)**
+**by [BK](https://kalkiinfinite.odoo.com)**
 
 Turns the "Preview" action on every Odoo attachment into an actual preview:
 images, PDFs, text files, video, audio and stored links open in a page that
@@ -56,6 +56,6 @@ system parameter:
 
 LGPL-3. See the `LICENSE` file.
 
-## About Kalki Infinite
+## About BK
 
 [kalkiinfinite.odoo.com](https://kalkiinfinite.odoo.com)
